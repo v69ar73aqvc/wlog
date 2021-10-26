@@ -1,0 +1,53 @@
+---- bugger
+
+web frontend for updating collection and updating entries (access control learning opportunity.)
+
+just have a bunch of task interfaces for sources
+
+process scrapes requests on worker (microservice learning opportunity.)
+
+even when stuff is populated from these, user needs to check before entry.
+quick fetching via substring for existing progenitors for example.
+(would disp all aliases for matches in any lang)
+
+also be able to fix foggups because yes (normal person level of usability learning opportunity.)
+
+---- potential inputs
+
+L1: direct sources (bandcamp, ototoy)
+L2: multi-link (tunecore jp)
+L3: timeline scrape (twitter, youtube)
+
+---- intent
+
+intent (high)
+psyqui (also such)
+street
+feryquitous
+
+intent (less)
+polysha
+sakuzyo
+zekk
+
+---- db
+
+progenitor(+id)
+-multivalue aliases (id-keyed, 2-char code bound, with multi)
+
+song(+id)
+// pretty much just an arbitrary concept.
+
+variant(+id)
+-source song id
+-multivalue titles (2-char code bound)
+-multivalue progenitor contributors
+-multivalue links
+// why?
+// obvious: how many dstorv versions / remixes are there?
+// less obvious: shadows by neko hacker is sort of different in the 2 copies I have
+
+collector(+id)
+-connected to variants owned
+
+go postgres / sqlite ef core (reuse code from before for laziness, or do it right)
